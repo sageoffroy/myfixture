@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block mainTitulo %}Resgistrate{% endblock %}
+{% block mainTexto %}
+<center>
+	<form  id='form' method='post' action=''>{% csrf_token %}
+		<table>{{form}}</table>
+			<p><input type='submit' value='Registrarse' class="button"></p>
+	</form>
+</center>
+{% endblock %}

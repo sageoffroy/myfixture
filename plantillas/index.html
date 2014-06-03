@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+
+{% block mainTitulo %}Predice el Mundial{% endblock %}
+
+{% block mainTexto %}
+<center>
+	<img src="{{STATIC_URL}}img/brasil2014.jpg" alt="Rippled"/></center>
+Jugá al prode My Fixture. Armá tus pronósticos para el Mundial de Brasil 2014 y competi contra tus amigos.
+{% if user.is_authenticated %}
+	<div id="logout">
+		<center><a href=http://127.0.0.1:8000/logout/>Cerrar Sesion </a></center>
+	</div>
+{% else %}
+	Registrate ya y comenza a pronosticar la proxima copa del mundo.
+	<div id="logout">
+		<center>
+			<form  id='form' method='post' action=''>{% csrf_token %}
+				<table>{{form}}</table>
+					<input type='submit' value='Ingresar' class="button" >
+					<a href=http://127.0.0.1:8000/register/>Resgitrarse </a>
+			</form>
+		</center>
+	</div>
+{% endif %}
+
+{% endblock %}
+
+{% block boxNavTitulo %}Navegación{% endblock %}
+{% block boxNavLi1 %}<a href="selecciones">Selecciones Particpantes</a>{% endblock %}
+
+
+
+<!-- Need help? Go to "www.xblakej.com/contact-me" or email "blake@xblakej.com". 
+
+
+<head>
+	<title>'{{MEDIA_URL}}'</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="description" content="Rippled HTML Theme" />
+	<meta name="keywords" content="rippled, html, css, theme" />
+	<link rel="shortcut icon" href="favicon.ico" type="image/ico" />
+	<link rel="stylesheet" href="{{MEDIA_URL}}style.css" type="text/css" media="all" />
+</head>
+<body>
+	<div id="header">
+		<div id="header-content">
+			<div id="logo">
+				<a href="/"><img src="media/images/logo.png" alt="Rippled" /></a>
+			</div>
+			<div id="nav">
+				<ul>
+					<li><a href="index.html">Inicio</a></li>
+					<li><a href="page.html">About</a></li>
+					<li><a href="page.html">Contactanos</a></li>
+					<li><a href="page.html">Noticias</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="ic"></div>
+	<div class="clear"></div>
+	<div id="content">
+		<div id="main">
+			<h1>Predice el Mundial</h1>
+			
+			<p>Juga al prode con tus amigos en my fixture, online e interactivo</p>
+			<b>This is bold</b>
+			<br/>
+			<i>This is italic</i>
+			<br/>
+			<a href="#">This is a link</a>
+			<ul>
+				<li>This</li>
+				<li>is</li>
+				<li>a</li>
+				<li>list.</li>
+			</ul>
+			<ol>
+				<li>This</li>
+				<li>is</li>
+				<li>a</li>
+				<li>numbered</li>
+				<li>list.</li>
+			</ol>
+		</div>
+		<div id="sidebar">
+			<div class="sidebar-box">
+				<h3>Navegación</h3>
+				<li><a href="selecciones">Selecciones</a></li>
+			</div>
+			<div class="sidebar-box">
+				<h3>Box Title</h3>
+				<ul>
+					<li><a href="#">About</a></li>
+					<li><a href="#">Contact Us</a></li>
+					<li><a href="#">News</a></li>
+				</ul>
+			</div>
+			<div class="sidebar-box">
+				<h3>Box Title 3</h3>
+				<p>Another sidebar box.</p>
+			</div>
+		</div>
+	</div>
+	<div class="clear"></div>
+	<div id="footer">
+		<div id="footer-content">
+			<div id="icons">
+				<a href="#"><img src="media/images/twitter.png" alt="Twitter" width="40" height="40" /></a>
+				<a href="#"><img src="media/images/youtube.png" alt="Youtube" width="40" height="40" /></a>
+				<a href="#"><img src="media/images/facebook.png" alt="Facebook" width="40" height="40" /></a>
+				<a href="#"><img src="media/images/tumblr.png" alt="Tumblr" width="40" height="40" /></a>
+				<a href="#"><img src="media/images/wordpress.png" alt="Wordpress" width="40" height="40" /></a>
+				<a href="#"><img src="media/images/reddit.png" alt="Reddit" width="40" height="40" /></a>
+				<a href="#"><img src="media/images/digg.png" alt="Digg" width="40" height="40" /></a>
+				<a href="#"><img src="media/images/delicious.png" alt="Delicious" width="40" height="40" /></a>
+				<a href="#"><img src="media/images/linkedin.png" alt="Linkedin" width="40" height="40" /></a>
+				<a href="#"><img src="media/images/stumbleupon.png" alt="Stumbleupon" width="40" height="40" /></a>
+				<a href="#"><img src="media/images/rss.png" alt="RSS" width="40" height="40" /></a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>-->

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block mainTitulo %}Selecciones{% endblock %}
+{% block mainTexto %}
+  <table  cellpadding="0" cellspacing="0">
+    {% for elemento in selecciones %}
+       <th width="25">
+          <strong>{{elemento.pais}}</strong><br>
+          <img src='{{MEDIA_URL}}{{elemento.escudo}}'>
+        </th>
+        {% if forloop.last %}
+          </tr>
+        {% else %}
+          {% if forloop.counter|divisibleby:"4" %}
+            </tr><tr>
+          {% endif %}
+        {% endif %}
+    {% endfor %} 
+  </table>
+    
+{% endblock %}
