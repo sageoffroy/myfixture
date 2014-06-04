@@ -91,6 +91,11 @@ class DjangoSession(models.Model):
         db_table = 'django_session'
 
 # Create your models here.
+class Prode (models.Model):
+    usuario = models.ForeignKey(User)
+    class Meta:
+        verbose_name_plural = "Prode de los usuarios"
+
 class Seleccion (models.Model):
 	pais = models.CharField(max_length=40, unique=True)
 	tecnico = models.CharField(max_length=80)
@@ -107,23 +112,29 @@ class Seleccion (models.Model):
 class SeleccionAdmin (admin.ModelAdmin):
 	list_display = ('pais','tecnico','escudo_image')
 	search_fields = ('pais',)
-	
+
+class Grupo (models.Model):
+    letra = models.CharField(max_length=1, unique=True)
+    equipo1 = models.ForeignKey(Seleccion, related_name='seleccion_equipo1')
+    equipo2 = models.ForeignKey(Seleccion, related_name='seleccion_equipo2')
+    equipo3 = models.ForeignKey(Seleccion, related_name='seleccion_equipo3')
+    equipo4 = models.ForeignKey(Seleccion, related_name='seleccion_equipo4')
+
+    def __unicode__(self):
+        return 'Grupo '+ self.letra
 
 class Partido (models.Model):
 	fecha = models.DateField()
 	e1 = models.ForeignKey(Seleccion, related_name='seleccion_e1')
 	e2 = models.ForeignKey(Seleccion, related_name='seleccion_e2')
-	e1_goles = models.IntegerField()
-	e2_goles = models.IntegerField()
-	ganador = models.ForeignKey(Seleccion, related_name='seleccion_ganador')
-	usuario = models.ForeignKey(User)
 
 
-class Grupo (models.Model):
-	letra = models.CharField(max_length=1, unique=True)
-	equipo1 = models.ForeignKey(Seleccion, related_name='seleccion_equipo1')
-	equipo2 = models.ForeignKey(Seleccion, related_name='seleccion_equipo2')
-	equipo3 = models.ForeignKey(Seleccion, related_name='seleccion_equipo3')
-	equipo4 = models.ForeignKey(Seleccion, related_name='seleccion_equipo4')
-	def __unicode__(self):
-		return 'Grupo '+ self.letra
+class Resultado (models.Model):
+    prode = models.ForeignKey(Prode)
+    partido = models.ForeignKey(Partido)
+    e1_goles = models.IntegerField()
+    e2_goles = models.IntegerField()
+    ganador = models.ForeignKey(Seleccion, related_name='seleccion_ganador')
+    empate = models.BooleanField()
+    class Meta:
+        verbose_name_plural = "Resultados de los Partidos"
