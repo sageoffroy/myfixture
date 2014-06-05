@@ -1,17 +1,48 @@
-<!DOCTYPE html>
-<html lang='es'>
-  <head>
-    <title>Lista de bebidas de ejemplo222</title>
-    <meta charset='utf-8'>
-  </head>
-  <body>
-    <h1>Recetario de Bebidas</h1>
-    {% for elemento in selecciones %}
-    <ul>
-      <li><strong>{{elemento.pais}}</strong></li>
-      <li><img src="http://127.0.0.1:8000/media/%s"/></li>
-      
-    </ul>
-    {% endfor %}
-  </body>
-</html>
+{% extends 'base.html' %}
+
+{% block mainTitulo %}Fixture Interactivo{% endblock %}
+{% block mainTexto %}
+<div class="contenedor-tabs">
+	{%for g in grupos%}
+		<span class="diana" id="grupo{{g.letra}}"></span>
+		<div class="tab">
+			<a href="#grupo{{g.letra}}" class="tab-e">Grupo {{g.letra}}</a>
+			<div class="content">
+				<strong>Grupo {{g.letra}}</strong>
+				<div class="grupo_escudos">
+					<img src='{{MEDIA_URL}}{{g.e1.escudo}}'>
+					<img src='{{MEDIA_URL}}{{g.e2.escudo}}'>
+					<img src='{{MEDIA_URL}}{{g.e3.escudo}}'>
+					<img src='{{MEDIA_URL}}{{g.e4.escudo}}'>
+				</div>
+				<div class= "lista">
+					{%for p in partidos%}
+						<div class="partido">
+							<div class="fecha">{{p.fecha}}</div>
+							<div class="equipo_r">{{p.e1}}</div>
+							<input class="resultado resultado1" type="text" maxlength="1" data-bind="value: goalsA, valueUpdate: 'afterkeydown', css: { winner: winner() == teamA },attr: { 'data-stage': stage }" data-stage="F">
+							<span class="guion">-</span>
+							<input class="resultado resultado2" type="text" maxlength="1" data-bind="value: goalsB, valueUpdate: 'afterkeydown', css: { winner: winner() == teamB, 'no-tab': $index() == 5 },attr: { 'data-stage': stage }" data-stage="F">
+							<div class="equipo_l">{{p.e2}}</div>
+							<!--{% if g.e1 == p.e1 %}
+							<div class="fecha">{{p.fecha}}</div>
+							<div class="partido">{{p.e1}} vs {{p.e2}}</div>
+							{% elif g.e2 == p.e1 %}
+							<div class="fecha">{{p.fecha}}</div>
+							<div class="partido">{{p.e1}} vs {{p.e2}}</div>
+							{% elif g.e3 == p.e1 %}
+							<div class="fecha">{{p.fecha}}</div>
+							<div class="partido">{{p.e1}} vs {{p.e2}}</div>
+							{% elif g.e4 == p.e1 %}
+							<div class="fecha">{{p.fecha}}</div>
+							<div class="partido">{{p.e1}} vs {{p.e2}}</div>
+							{% endif %}-->
+						</div>	
+					{%endfor%}
+				</div>
+			</div>
+		</div>
+	{% endfor %}
+</div>
+
+{% endblock %}

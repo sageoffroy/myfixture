@@ -36,7 +36,7 @@ p, b, i, ul, ol, li {
 	color: #fffff;
 	font-size: 1em;
 	font-family: Arial, Helvetica, sans-serif;
-	text-shadow: 1px 2px 1px #565656;
+	/*text-shadow: 1px 2px 1px #565656;*/
 	text-decoration: none;
 }
 
@@ -240,6 +240,7 @@ table {
 #main {
 	background: #111111;
 	width: 610px;
+	min-height: 600px;
 	float: left;
 	padding: 10px;
 	-webkit-border-radius: 3px;
@@ -250,6 +251,196 @@ table {
 	text-align: justify;
 
 }
+
+/* PESTAÑAS */
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.contenedor-tabs {
+	max-width: 600px;
+	margin: 50px auto 0;
+	position: relative;
+}
+
+span.diana {
+	position: fixed;
+	display: none;
+}
+
+.tab div {
+	background: #8AA9B8;
+	background: #000000;
+  	width: 100%;
+  	top: 1rem;
+  	left: 0;
+  	font-size: 1.2rem;
+  	font-family: carme, sans-serif;
+  	color: #fff;
+  	line-height: 1.2;
+  	z-index: 5;
+  	opacity:0;
+  	border-radius: 0px 0px 5px 5px;
+  	transition: all 0s linear;
+ }
+
+.tab .content {
+	font-family: 'HarabaraRegular';
+	font-size: 1.3em;
+	text-decoration: none;
+	line-height: 30px;
+	text-shadow: 1px 2px 1px #000000;
+	text-align: center;
+	min-height: 200px;
+	position:absolute;
+}
+.tab .content p{
+	margin-top: 15px;
+	margin-left: 15px;
+
+	
+}
+.tab .content .grupo_escudos{
+	margin-top: 15px;
+}
+.tab .content .grupo_escudos img{
+	margin-right:10px;
+	margin-left:10px;
+	width: 7%;
+	height: 7%;
+	
+}
+
+.tab .content .lista{
+	width: 100%;
+	height: 325px;
+	/*border: 1px solid #555555;*/
+
+}
+
+.tab .content .lista .partido{
+	
+	display:block;
+	height: 37px;
+	width: 95%;
+	margin: 10px;
+}
+
+
+.tab .content .lista .partido .fecha{
+	color: #E16039;
+	width: 82px;
+	height: 25px;
+	float: left;
+	font-weight:inherit;
+	font-style: inherit;
+	font-size: 12px	;
+	margin-top: 5px;
+	text-decoration: none;
+	text-align: center;
+}
+
+.tab .content .lista .partido .equipo_l{
+	width: 25%;
+	height: 25px;
+	text-align: left;
+	float: left;
+	margin-top: 5px;
+	font-size: 16px	;
+	
+}
+
+.tab .content .lista .partido .equipo_r{
+	width: 25%;
+	height: 25px;
+	margin-top: 5px;
+	font-size: 16px	;
+	text-align: right;
+	float: left;
+	
+	
+}
+
+.tab .content .lista .partido .resultado{
+	
+	width: 33px;
+	height: 25px;
+	padding: 4px 0 2px;
+	margin: 0 5px;
+	color:black;
+	font-weight: 700;
+	font-size: 20px;
+	font-family: ArchivoNarrowRegular;
+	background: #fff;
+	border: 1px solid #ccc;
+	text-align: center;
+	float: left;
+}
+
+.tab .content .lista .partido .guion{
+	float: left;
+    margin: 12px 0px 0px;
+    font-weight: 700;
+    font-size: 10px;
+    font-family: ArchivoNarrowRegular;
+    text-align: center;
+}
+
+
+.tab .tab-e {
+ 	margin-top: -1rem;
+  	float: left;
+  	width: 12%;
+  	padding: 5px;
+	background: #888888;
+  	margin-right: 3px;
+
+  	text-decoration: none;
+	font-family: 'HarabaraRegular';
+	font-size: 1.0em;
+	font-weight: bold;
+  	color: #ffffff;
+  	text-align: center;
+	text-shadow: 1px 2px 1px #000000;
+  	position: relative;
+
+	border-radius: 7px;
+  	transition: all 0.1s linear;
+
+	line-height: 30px;
+	-webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+	-ms-border-radius: 7px;
+	-o-border-radius: 7px;
+
+}
+
+
+a.tab-e:hover {
+  	color: #ff0000;
+}
+
+p img {
+	float: left; 
+	width: 20%;
+}
+  
+.diana:target + .tab div {
+	opacity: 1;
+	background: #000000;
+	color: #fff;    
+ }
+
+.diana:target + .tab .tab-e {
+  background: #000000;
+  color: #f5f5f5;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+ }
+
 
 /* === Sidebar === */
 

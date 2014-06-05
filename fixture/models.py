@@ -95,6 +95,8 @@ class Prode (models.Model):
     usuario = models.ForeignKey(User)
     class Meta:
         verbose_name_plural = "Prode de los usuarios"
+    def __unicode__(self):
+    	return self.usuario
 
 class Seleccion (models.Model):
 	pais = models.CharField(max_length=40, unique=True)
@@ -115,10 +117,10 @@ class SeleccionAdmin (admin.ModelAdmin):
 
 class Grupo (models.Model):
     letra = models.CharField(max_length=1, unique=True)
-    equipo1 = models.ForeignKey(Seleccion, related_name='seleccion_equipo1')
-    equipo2 = models.ForeignKey(Seleccion, related_name='seleccion_equipo2')
-    equipo3 = models.ForeignKey(Seleccion, related_name='seleccion_equipo3')
-    equipo4 = models.ForeignKey(Seleccion, related_name='seleccion_equipo4')
+    e1 = models.ForeignKey(Seleccion, related_name='seleccion_equipo1')
+    e2 = models.ForeignKey(Seleccion, related_name='seleccion_equipo2')
+    e3 = models.ForeignKey(Seleccion, related_name='seleccion_equipo3')
+    e4 = models.ForeignKey(Seleccion, related_name='seleccion_equipo4')
 
     def __unicode__(self):
         return 'Grupo '+ self.letra
@@ -127,14 +129,18 @@ class Partido (models.Model):
 	fecha = models.DateField()
 	e1 = models.ForeignKey(Seleccion, related_name='seleccion_e1')
 	e2 = models.ForeignKey(Seleccion, related_name='seleccion_e2')
-
+	
+	def __unicode__(self):
+    		return str(self.fecha) + " " + str(self.e1) + " vs " + str(self.e2)
 
 class Resultado (models.Model):
-    prode = models.ForeignKey(Prode)
-    partido = models.ForeignKey(Partido)
-    e1_goles = models.IntegerField()
-    e2_goles = models.IntegerField()
-    ganador = models.ForeignKey(Seleccion, related_name='seleccion_ganador')
-    empate = models.BooleanField()
-    class Meta:
-        verbose_name_plural = "Resultados de los Partidos"
+	TIPO_RESULTADO = ((0, "Local"),(1, "Empate"),(2, "Visitante"))
+	prode = models.ForeignKey(Prode)
+	partido = models.ForeignKey(Partido)
+	e1_goles = models.IntegerField()
+	e2_goles = models.IntegerField()
+	resultado = models.PositiveSmallIntegerField(choices = TIPO_RESULTADO)
+	class Meta:
+		verbose_name_plural = "Resultados de los Partidos"
+	def __unicode__(self):
+		return str(self.partido.fecha) + "   " + str(self.partido.e1) + " " + str(self.e1_goles) + " - " +str(self.partido.e2) + " " + str(self.e2_goles)+" / Ganador: " + str(self.ganador)

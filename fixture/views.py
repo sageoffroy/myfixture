@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from django.http import HttpResponse, HttpResponseRedirect
 
 #modelos propios
-from fixture.models import Seleccion
+from fixture.models import Seleccion, Grupo, Partido
 from fixture.forms import ContactoForm, UserRegisterForm
 
 #Gestion de usuarios
@@ -18,6 +18,12 @@ from django.contrib.auth.decorators import login_required
 def selecciones(request):
 	selecciones = Seleccion.objects.all()
 	return render_to_response('selecciones.html',{'selecciones':selecciones},context_instance=RequestContext(request))
+
+def fixture(request):
+	grupos = Grupo.objects.all()
+	partidos = Partido.objects.all()
+	return render_to_response('fixture.html',{'grupos':grupos, 'partidos':partidos},context_instance=RequestContext(request))
+
 
 def home(request):
 	selecciones = Seleccion.objects.all()
