@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block mainTitulo %}Fixture Interactivo{% endblock %}
+{% block box2Title %}Posiciones{% endblock %}
 {% block mainTexto %}
 <div class="contenedor-tabs">
 	{%for g in grupos%}
@@ -37,12 +38,44 @@
 							<div class="fecha">{{p.fecha}}</div>
 							<div class="partido">{{p.e1}} vs {{p.e2}}</div>
 							{% endif %}-->
-						</div>	
+						</div>
 					{%endfor%}
 				</div>
+                <div class="posiciones">
+                    <div class="titulo" data-bind="template: { name: 'group-header-template'}">
+                        <div class="tit">POSICIONES</div>
+                        <div class="tit_col">
+                            <span>
+                                Pts.
+                            </span>
+                        </div>
+                        <div class="tit_col">Gan.</div>
+                        <div class="tit_col">Emp.</div>
+                        <div class="tit_col">Per.</div>
+                        <div class="tit_col">GF.</div>
+                        <div class="tit_col">GC.</div>
+                        <div class="tit_col">Dif.</div>
+                    </div>
+                    <div data-bind="foreach: positions.F.teams">
+                        <div class="equipo" data-bind="template: { name: 'group-template', data: $data }">
+                            <div class="band arg" data-bind="css: flag"></div>
+                            <div class="nom" data-bind="text: country"></div>
+                            <div class="num_pts" data-bind="text: points"></div>
+                            <div class="num" data-bind="text: win"></div>
+                            <div class="num" data-bind="text: nil"></div>
+                            <div class="num" data-bind="text: lose"></div>
+                            <div class="num" data-bind="text: goalsF"></div>
+                            <div class="num" data-bind="text: goalsC"></div>
+                            <div class="num" data-bind="text: diff"></div>
+                        </div>
+                     </div>
+                </div>
 			</div>
 		</div>
-	{% endfor %}
-</div>
 
+    {% endfor %}
+</div>
 {% endblock %}
+
+
+

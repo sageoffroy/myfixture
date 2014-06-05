@@ -222,7 +222,7 @@ table {
 	border-radius: 7px;
 	zoom: 1;
 	filter: alpha(opacity=90);
-	opacity: 0.9;	
+	opacity: 0.9;
 }
 
 
@@ -283,7 +283,6 @@ span.diana {
   	line-height: 1.2;
   	z-index: 5;
   	opacity:0;
-  	border-radius: 0px 0px 5px 5px;
   	transition: all 0s linear;
  }
 
@@ -301,7 +300,7 @@ span.diana {
 	margin-top: 15px;
 	margin-left: 15px;
 
-	
+
 }
 .tab .content .grupo_escudos{
 	margin-top: 15px;
@@ -311,7 +310,7 @@ span.diana {
 	margin-left:10px;
 	width: 7%;
 	height: 7%;
-	
+
 }
 
 .tab .content .lista{
@@ -322,7 +321,7 @@ span.diana {
 }
 
 .tab .content .lista .partido{
-	
+
 	display:block;
 	height: 37px;
 	width: 95%;
@@ -338,7 +337,6 @@ span.diana {
 	font-weight:inherit;
 	font-style: inherit;
 	font-size: 12px	;
-	margin-top: 5px;
 	text-decoration: none;
 	text-align: center;
 }
@@ -350,7 +348,7 @@ span.diana {
 	float: left;
 	margin-top: 5px;
 	font-size: 16px	;
-	
+
 }
 
 .tab .content .lista .partido .equipo_r{
@@ -360,12 +358,12 @@ span.diana {
 	font-size: 16px	;
 	text-align: right;
 	float: left;
-	
-	
+
+
 }
 
 .tab .content .lista .partido .resultado{
-	
+
 	width: 33px;
 	height: 25px;
 	padding: 4px 0 2px;
@@ -424,14 +422,14 @@ a.tab-e:hover {
 }
 
 p img {
-	float: left; 
+	float: left;
 	width: 20%;
 }
-  
+
 .diana:target + .tab div {
 	opacity: 1;
 	background: #000000;
-	color: #fff;    
+	color: #fff;
  }
 
 .diana:target + .tab .tab-e {
@@ -505,3 +503,78 @@ p img {
 	text-decoration: none;
 	text-shadow: 1px 2px 1px #000000;
 }
+
+
+
+/*===== BOX FIXTURE ======*/
+
+div.titulo {
+    color: rgb(225, 96, 57);
+    font-size: 20px;
+    font-family: ArchivoNarrowRegular;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+div.posiciones {
+    border: 1px solid rgb(231, 231, 231);
+    background: none repeat scroll 0% 0% rgb(250, 250, 250);
+    float: left;
+    overflow: hidden;
+    margin: 0px;
+	font-family: Arial,Helvetica,sans-serif;
+	display: block;
+	outline: 0px none;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	vertical-align: baseline;
+}
+
+
+div.posiciones div{
+	font-style: inherit;
+	color:white;
+}
+
+
+
+div.posiciones div.titulo{
+	width: 96%;
+	height: 30px;
+	font-size: 15px;
+	margin-left: 10px;
+	margin-top: 0px;
+	padding-top: 18px;
+	padding-bottom: 18px;
+	line-height: 2;
+	border-bottom: 1px solid rgb(233, 233, 233);
+
+}
+
+
+
+
+div.posiciones div.titulo div.tit {
+    width: 180px;
+    font-size: 17px;
+    float: left;
+    margin-top: 11px;
+    font-family: ArchivoNarrowRegular;
+}
+
+div.posiciones div.titulo div.tit_col {
+    width: 32px;
+    font-size: 12px;
+    font-family: Arial,Helvetica,sans-serif;
+    text-align: center;
+    line-height: 3.5;
+    margin-right: 5px;
+    float: left;
+}
+
+div.posiciones div.titulo div.tit_col span {
+    font-weight: 700;
+    color: rgb(225, 96, 57);
+
+

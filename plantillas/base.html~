@@ -41,21 +41,23 @@
 		</div>
 		<div id="sidebar">
 			<div class="sidebar-box">
-				<h3>{% block boxNavTitulo %}Navegación{% endblock %}</h3>
+				<h3>{% block boxNavTitulo %}{% endblock %}</h3>
+				<li>{% block boxNavLi1 %}{% endblock %}</li>
+				<li>{% block boxNavLi2 %}{% endblock %}</li>
+				<li>{% block boxNavLi3 %}{% endblock %}</li>
+				<li>{% block boxNavLi4 %}{% endblock %}</li>
+			</div>
+			<div class="sidebar-box">
+				<h3>Box Title</h3>
 				<ul>
-					<li>{% block boxNavLi1 %}{% endblock %}</li>
-					<li>{% block boxNavLi2 %}{% endblock %}</li>
-					<li>{% block boxNavLi3 %}{% endblock %}</li>
-					<li>{% block boxNavLi4 %}{% endblock %}</li>
+					<li><a href="#">About</a></li>
+					<li><a href="#">Contact Us</a></li>
+					<li><a href="#">News</a></li>
 				</ul>
 			</div>
 			<div class="sidebar-box">
-				<h3>{% block box2Title %}{% endblock %}</h3>
-				{% block box2Content %}{% endblock %}
-			</div>
-			<div class="sidebar-box">
-				<h3>{% block box3Title %}{% endblock %}</h3>
-				<p>{% block box3Content %}{% endblock %}</p>
+				<h3>Box Title 3</h3>
+				<p>Another sidebar box.</p>
 			</div>
 		</div>
 	</div>
