@@ -1,8 +1,209 @@
 {% extends 'base.html' %}
 
+{% block head_script%}
+
+function cambioInput (input) {
+	//alert('Cambio el texto del input: ' + parseInt(input.value));
+	valorAnterior = parseInt(input.value);
+}
+
+
+
+
+{% endblock %}
+
+
 {% block mainTitulo %}Fixture Interactivo{% endblock %}
 {% block box2Title %}Posiciones{% endblock %}
 {% block mainTexto %}
+<div id="tabs">
+	<ul>
+		{%for g in grupos%}
+			<li><a href="#grupo{{g.letra}}">Grupo {{g.letra}}</a></li>
+		{% endfor %}
+	</ul>
+	{%for g in grupos%}
+		<div id="grupo{{g.letra}}">
+			<div id="titulo_grupo"><strong>Grupo {{g.letra}}</strong></div>
+			<table class="grupo_escudos">
+	  				<tr>
+	    				<th><img src='{{MEDIA_URL}}{{g.e1.escudo}}'></th>
+	    				<th><img src='{{MEDIA_URL}}{{g.e2.escudo}}'></th>	
+	    				<th><img src='{{MEDIA_URL}}{{g.e3.escudo}}'></th>
+	    				<th><img src='{{MEDIA_URL}}{{g.e4.escudo}}'></th>
+	  				</tr>
+	  				<tr>
+	    				<td>{{g.e1}}</td>
+	    				<td>{{g.e2}}</td>
+	    				<td>{{g.e3}}</td>
+						<td>{{g.e4}}</td>
+	  				</tr>
+			</table>
+			<div id="left">
+				<div class= "lista">
+					<div class="partido" id="p1">
+						<div class="fecha">{{g.p1.getFecha}}</div>
+						<div class="flag flag_l">
+							<img src='{{MEDIA_URL}}{{g.p1.e1.bandera}}'>
+						</div>
+						<div class="equipo_l">{{g.p1.e1.cod_fifa}}</div>
+						{{form.e1_goles}} 
+<!-- <input class="goles loc" id="id_e1_goles" name="e1_goles" size="2" type="text">-->
+						<span class="guion">-</span>
+						{{form.e2_goles}}
+						<div class="equipo_r">{{g.p1.e2.cod_fifa}}</div>
+						<div class="flag flag_r">
+							<img src='{{MEDIA_URL}}{{g.p1.e2.bandera}}'>
+						</div>
+					</div>
+					<div class="partido" id="p2">
+						<div class="fecha">{{g.p2.getFecha}}</div>
+						<div class="flag flag_l">
+							<img src='{{MEDIA_URL}}{{g.p2.e1.bandera}}'>
+						</div>
+						<div class="equipo_l">{{g.p2.e1.cod_fifa}}</div>
+						{{form.e1_goles}} 
+						<span class="guion">-</span>
+						{{form.e2_goles}}
+						<div class="equipo_r">{{g.p2.e2.cod_fifa}}</div>
+						<div class="flag flag_r">
+							<img src='{{MEDIA_URL}}{{g.p2.e2.bandera}}'>
+						</div>
+					</div>
+					<div class="partido" id=	"p3">
+						<div class="fecha">{{g.p3.getFecha}}</div>
+						<div class="flag flag_l">
+							<img src='{{MEDIA_URL}}{{g.p3.e1.bandera}}'>
+						</div>
+						<div class="equipo_l">{{g.p3.e1.cod_fifa}}</div>
+						{{form.e1_goles}} 
+						<span class="guion">-</span>
+						{{form.e2_goles}}
+						<div class="equipo_r">{{g.p3.e2.cod_fifa}}</div>
+						<div class="flag flag_r">
+							<img src='{{MEDIA_URL}}{{g.p3.e2.bandera}}'>
+						</div>
+					</div>
+					<div class="partido" id="p4">
+						<div class="fecha">{{g.p4.getFecha}}</div>
+						<div class="flag flag_l">
+							<img src='{{MEDIA_URL}}{{g.p4.e1.bandera}}'>
+						</div>
+						<div class="equipo_l">{{g.p4.e1.cod_fifa}}</div>
+						{{form.e1_goles}} 
+						<span class="guion">-</span>
+						{{form.e2_goles}}
+						<div class="equipo_r">{{g.p4.e2.cod_fifa}}</div>
+						<div class="flag flag_r">
+							<img src='{{MEDIA_URL}}{{g.p4.e2.bandera}}'>
+						</div>
+					</div>
+					<div class="partido" id="p5">
+						<div class="fecha">{{g.p5.getFecha}}</div>
+						<div class="flag flag_l">
+							<img src='{{MEDIA_URL}}{{g.p5.e1.bandera}}'>
+						</div>
+						<div class="equipo_l">{{g.p5.e1.cod_fifa}}</div>
+						{{form.e1_goles}}
+						<span class="guion">-</span>
+						{{form.e2_goles}}
+						<div class="equipo_r">{{g.p5.e2.cod_fifa}}</div>
+						<div class="flag flag_r">
+							<img src='{{MEDIA_URL}}{{g.p5.e2.bandera}}'>
+						</div>
+					</div>
+					<div class="partido" id="p6">
+						<div class="fecha">{{g.p6.getFecha}}</div>
+						<div class="flag flag_l">
+							<img src='{{MEDIA_URL}}{{g.p6.e1.bandera}}'>
+						</div>
+						<div class="equipo_l">{{g.p6.e1.cod_fifa}}</div>
+						{{form.e1_goles}}
+						<span class="guion">-</span>
+						{{form.e2_goles}}
+						<div class="equipo_r">{{g.p6.e2.cod_fifa}}</div>
+						<div class="flag flag_r">
+							<img src='{{MEDIA_URL}}{{g.p6.e2.bandera}}'>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="right">
+				<div class="titulo" >
+					<div class="tit">POSICION</div>
+					<div class="tit_col">
+						<span>Pts.</span>
+					</div>
+					<div class="tit_col">Gan.</div>
+					<div class="tit_col">Emp.</div>
+					<div class="tit_col">Per.</div>
+					<div class="tit_col">GF.</div>
+					<div class="tit_col">GC.</div>
+					<div class="tit_col">Dif.</div>
+				</div>
+				
+				<div class="equipo" id="{{g.e1.cod_fifa}}">
+					<div class="flag">
+						<img src='{{MEDIA_URL}}{{g.e1.bandera}}'>
+					</div>
+					<div class="nom">{{g.e1.cod_fifa}}</div>
+					<div class="num_pts" data-bind="text: points">0</div>
+					<div class="num" data-bind="text: win">0</div>
+					<div class="num" data-bind="text: nil">0</div>
+					<div class="num" data-bind="text: lose">0</div>
+					<div class="num" data-bind="text: goalsF">0</div>
+					<div class="num" data-bind="text: goalsC">0</div>
+					<div class="num" data-bind="text: diff">0</div>
+				</div>
+				<div class="equipo" id="{{g.e2.cod_fifa}}">
+					<div class="flag">
+						<img src='{{MEDIA_URL}}{{g.e2.bandera}}'>
+					</div>
+					<div class="nom">{{g.e2.cod_fifa}}</div>
+					<div class="num_pts" data-bind="text: points">0</div>
+					<div class="num" data-bind="text: win">0</div>
+					<div class="num" data-bind="text: nil">0</div>
+					<div class="num" data-bind="text: lose">0</div>
+					<div class="num" data-bind="text: goalsF">0</div>
+					<div class="num" data-bind="text: goalsC">0</div>
+					<div class="num" data-bind="text: diff">0</div>
+				</div>
+				<div class="equipo" id="{{g.e3.cod_fifa}}">
+					<div class="flag">
+						<img src='{{MEDIA_URL}}{{g.e3.bandera}}'>
+					</div>
+					<div class="nom">{{g.e3.cod_fifa}}</div>
+					<div class="num_pts" data-bind="text: points">0</div>
+					<div class="num" data-bind="text: win">0</div>
+					<div class="num" data-bind="text: nil">0</div>
+					<div class="num" data-bind="text: lose">0</div>
+					<div class="num" data-bind="text: goalsF">0</div>
+					<div class="num" data-bind="text: goalsC">0</div>
+					<div class="num" data-bind="text: diff">0</div>
+				</div>
+				<div class="equipo" id="{{g.e4.cod_fifa}}">
+					<div class="flag">
+						<img src='{{MEDIA_URL}}{{g.e4.bandera}}'>
+					</div>
+					<div class="nom">{{g.e4.cod_fifa}}</div>
+					<div class="num_pts" data-bind="text: points">0</div>
+					<div class="num" data-bind="text: win">0</div>
+					<div class="num" data-bind="text: nil">0</div>
+					<div class="num" data-bind="text: lose">0</div>
+					<div class="num" data-bind="text: goalsF">0</div>
+					<div class="num" data-bind="text: goalsC">0</div>
+					<div class="num" data-bind="text: diff">0</div>
+				</div>
+			</div>
+		</div>
+	{% endfor %}
+</div>
+{% endblock %}
+
+
+
+<!--
+
 <div class="contenedor-tabs">
 	{%for g in grupos%}
 		<span class="diana" id="grupo{{g.letra}}"></span>
@@ -17,65 +218,28 @@
 					<img src='{{MEDIA_URL}}{{g.e4.escudo}}'>
 				</div>
 				<div class= "lista">
-					{%for p in partidos%}
-						<div class="partido">
-							<div class="fecha">{{p.fecha}}</div>
-							<div class="equipo_r">{{p.e1}}</div>
-							<input class="resultado resultado1" type="text" maxlength="1" data-bind="value: goalsA, valueUpdate: 'afterkeydown', css: { winner: winner() == teamA },attr: { 'data-stage': stage }" data-stage="F">
-							<span class="guion">-</span>
-							<input class="resultado resultado2" type="text" maxlength="1" data-bind="value: goalsB, valueUpdate: 'afterkeydown', css: { winner: winner() == teamB, 'no-tab': $index() == 5 },attr: { 'data-stage': stage }" data-stage="F">
-							<div class="equipo_l">{{p.e2}}</div>
-							<!--{% if g.e1 == p.e1 %}
-							<div class="fecha">{{p.fecha}}</div>
-							<div class="partido">{{p.e1}} vs {{p.e2}}</div>
-							{% elif g.e2 == p.e1 %}
-							<div class="fecha">{{p.fecha}}</div>
-							<div class="partido">{{p.e1}} vs {{p.e2}}</div>
-							{% elif g.e3 == p.e1 %}
-							<div class="fecha">{{p.fecha}}</div>
-							<div class="partido">{{p.e1}} vs {{p.e2}}</div>
-							{% elif g.e4 == p.e1 %}
-							<div class="fecha">{{p.fecha}}</div>
-							<div class="partido">{{p.e1}} vs {{p.e2}}</div>
-							{% endif %}-->
-						</div>
-					{%endfor%}
+					<div class="partido">
+						<div class="fecha">{{g.p1.fecha}}</div>
+						<div class="equipo_l">{{g.p1.e1}}</div>
+						<input class="resultado resultado1" type="text" maxlength="1" >
+						<span class="guion">-</span>
+						<input class="resultado resultado2" type="text" maxlength="1" >
+						<div class="equipo_r">{{g.p1.e2}}</div>
+					</div>
+						
+					<div class="partido">
+						<div class="fecha">{{g.p1.fecha}}</div>
+						<div class="equipo_l">{{g.p1.e1}}</div>
+						{{form.e1_goles}}
+						<span class="guion">-</span>
+						{{form.e2_goles}}
+						<div class="equipo_r">{{g.p1.e2}}</div>
+					</div>
 				</div>
-                <div class="posiciones">
-                    <div class="titulo" data-bind="template: { name: 'group-header-template'}">
-                        <div class="tit">POSICIONES</div>
-                        <div class="tit_col">
-                            <span>
-                                Pts.
-                            </span>
-                        </div>
-                        <div class="tit_col">Gan.</div>
-                        <div class="tit_col">Emp.</div>
-                        <div class="tit_col">Per.</div>
-                        <div class="tit_col">GF.</div>
-                        <div class="tit_col">GC.</div>
-                        <div class="tit_col">Dif.</div>
-                    </div>
-                    <div data-bind="foreach: positions.F.teams">
-                        <div class="equipo" data-bind="template: { name: 'group-template', data: $data }">
-                            <div class="band arg" data-bind="css: flag"></div>
-                            <div class="nom" data-bind="text: country"></div>
-                            <div class="num_pts" data-bind="text: points"></div>
-                            <div class="num" data-bind="text: win"></div>
-                            <div class="num" data-bind="text: nil"></div>
-                            <div class="num" data-bind="text: lose"></div>
-                            <div class="num" data-bind="text: goalsF"></div>
-                            <div class="num" data-bind="text: goalsC"></div>
-                            <div class="num" data-bind="text: diff"></div>
-                        </div>
-                     </div>
-                </div>
 			</div>
 		</div>
-
-    {% endfor %}
-</div>
-{% endblock %}
+	{% endfor %}
+	</div>
 
 
-
+-->

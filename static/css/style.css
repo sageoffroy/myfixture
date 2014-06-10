@@ -254,190 +254,225 @@ table {
 
 /* PESTAÑAS */
 
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+#tabs {
+	height: 550px
 }
-.contenedor-tabs {
-	max-width: 600px;
-	margin: 50px auto 0;
+#titulo_grupo {
+	width: 100%;
+	margin-bottom: 10px;
+	text-align: center;
+	font-size: 30px;
+}
+
+#left{
+	width: 50%;	
+	float: left;
+	/*border-right: 1px solid #e7e7e7;*/
+}
+
+
+#right{
+	width: 48%;
+	border: 1px solid #e7e7e7;
+	float: left;
+	overflow: hidden;
+	font-family: Arial,Helvetica,sans-serif;
+}
+
+.titulo {
+	width: 100%;
+	height: 40px;
+	border-bottom: 1px solid #e9e9e9;
+	margin-top: 0;
+	margin-bottom: 0;
+	line-height: 2.5;
+	font-family: ArchivoNarrowRegular;
+	background-color: #0972a5;
+}
+
+.titulo .tit {
+	width: 75px;
+	font-size: 14px;
+	font-family: Arial,Helvetica,sans-serif;
+	text-align: center;
+	margin-left: 3px;
+	line-height: 3.0;
+
+	float: left;
+}
+
+.titulo .tit_col{
+	width: 30px;
+	font-size: 12px;
+	font-family: Arial,Helvetica,sans-serif;
+	
+	text-align: center;
+	line-height: 3.5;
+	float: left;
+}
+
+.titulo div.tit_col span {
+	color: #e16039;
+	font-weight: 700;
+}
+.equipo {
+	width: 100%;
+	height: 16px;
+	font-size: 15px;
+	margin-top: 0;
+	padding-top: 18px;
+	padding-bottom: 18px;
+	/*border-bottom: 1px solid #e9e9e9;*/
+}
+
+.equipo .flag {
+	margin-left: 3px;
+}
+
+.band {
+	width: 20px;
+	margin-top: 8px;
+	height: 16px;
+	overflow: hidden;
+	float: left;
+	background-position: 0 -6px;
 	position: relative;
 }
 
-span.diana {
-	position: fixed;
-	display: none;
+.nom {
+	width: 45px;
+	float: left;
+	margin-left: 5px;
 }
 
-.tab div {
-	background: #8AA9B8;
-	background: #000000;
-  	width: 100%;
-  	top: 1rem;
-  	left: 0;
-  	font-size: 1.2rem;
-  	font-family: carme, sans-serif;
-  	color: #fff;
-  	line-height: 1.2;
-  	z-index: 5;
-  	opacity:0;
-  	transition: all 0s linear;
- }
-
-.tab .content {
-	font-family: 'HarabaraRegular';
-	font-size: 1.3em;
-	text-decoration: none;
-	line-height: 30px;
-	text-shadow: 1px 2px 1px #000000;
+.num {
+	width: 30px;
+	font-size: 17px;
+	color: #999;
 	text-align: center;
-	min-height: 200px;
-	position:absolute;
+	font-family: ArchivoNarrowRegular;
+	float: left;
 }
-.tab .content p{
-	margin-top: 15px;
-	margin-left: 15px;
+
+.num_pts {
+	width: 30px;
+	font-size: 17px;
+	color: #e16039;
+	font-family: ArchivoNarrowRegular;
+	text-align: center;
+	float: left;
+}
 
 
+
+.grupo_escudos{
+	width:90%;
+	margin: 30px;
+	text-align: center;
+	font-size: 15px;	
 }
-.tab .content .grupo_escudos{
-	margin-top: 15px;
-}
-.tab .content .grupo_escudos img{
+.grupo_escudos img{
 	margin-right:10px;
 	margin-left:10px;
-	width: 7%;
-	height: 7%;
-
+	vertical-align:middle;
+	width:30%;
 }
 
-.tab .content .lista{
+.lista{
 	width: 100%;
-	height: 325px;
 	/*border: 1px solid #555555;*/
 
 }
 
-.tab .content .lista .partido{
+.lista .partido{
 
 	display:block;
-	height: 37px;
-	width: 95%;
-	margin: 10px;
+	width: 90%;
+	height: 40px;
+	margin: 4px;
 }
 
 
-.tab .content .lista .partido .fecha{
+.lista .partido .fecha{
 	color: #E16039;
-	width: 82px;
-	height: 25px;
+	width: 50px;
+	height: 35px;
 	float: left;
 	font-weight:inherit;
 	font-style: inherit;
-	font-size: 12px	;
+	font-size: 11px	;
 	text-decoration: none;
 	text-align: center;
 }
 
-.tab .content .lista .partido .equipo_l{
-	width: 25%;
-	height: 25px;
+
+.flag {
+	width: 25px;
+	height: 35px;
 	text-align: left;
 	float: left;
-	margin-top: 5px;
+	line-height: 28px;
 	font-size: 16px	;
 
 }
 
-.tab .content .lista .partido .equipo_r{
-	width: 25%;
-	height: 25px;
-	margin-top: 5px;
+.flag img {
+	width:100%;
+}
+
+.lista .partido .flag_r{
+	
+}
+
+
+
+.lista .partido .flag_l{
+
+}
+
+.lista .partido .equipo_r{
+	width: 40px;
+	height: 35px;
+	text-align: left;
+	float: left;
+	line-height: 25px;
 	font-size: 16px	;
+
+}
+
+.lista .partido .equipo_l{
+	width: 40px;
+	height: 35px;
 	text-align: right;
 	float: left;
-
-
+	line-height: 25px;
+	font-size: 16px	;
 }
 
-.tab .content .lista .partido .resultado{
-
-	width: 33px;
-	height: 25px;
+.lista .partido .goles{
+	width:25px;
+	height: 18px;
 	padding: 4px 0 2px;
 	margin: 0 5px;
 	color:black;
 	font-weight: 700;
-	font-size: 20px;
-	font-family: ArchivoNarrowRegular;
+	font-size: 14px;
+	font-family: Arial;
 	background: #fff;
 	border: 1px solid #ccc;
 	text-align: center;
 	float: left;
 }
 
-.tab .content .lista .partido .guion{
+.lista .partido .guion{
 	float: left;
-    margin: 12px 0px 0px;
+    margin: 9px 0px 0px;
     font-weight: 700;
     font-size: 10px;
     font-family: ArchivoNarrowRegular;
     text-align: center;
 }
 
-
-.tab .tab-e {
- 	margin-top: -1rem;
-  	float: left;
-  	width: 12%;
-  	padding: 5px;
-	background: #888888;
-  	margin-right: 3px;
-
-  	text-decoration: none;
-	font-family: 'HarabaraRegular';
-	font-size: 1.0em;
-	font-weight: bold;
-  	color: #ffffff;
-  	text-align: center;
-	text-shadow: 1px 2px 1px #000000;
-  	position: relative;
-
-	border-radius: 7px;
-  	transition: all 0.1s linear;
-
-	line-height: 30px;
-	-webkit-border-radius: 7px;
-	-moz-border-radius: 7px;
-	-ms-border-radius: 7px;
-	-o-border-radius: 7px;
-
-}
-
-
-a.tab-e:hover {
-  	color: #ff0000;
-}
-
-p img {
-	float: left;
-	width: 20%;
-}
-
-.diana:target + .tab div {
-	opacity: 1;
-	background: #000000;
-	color: #fff;
- }
-
-.diana:target + .tab .tab-e {
-  background: #000000;
-  color: #f5f5f5;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  z-index: 2;
- }
 
 
 /* === Sidebar === */
@@ -505,76 +540,5 @@ p img {
 }
 
 
-
-/*===== BOX FIXTURE ======*/
-
-div.titulo {
-    color: rgb(225, 96, 57);
-    font-size: 20px;
-    font-family: ArchivoNarrowRegular;
-    margin-top: 15px;
-    margin-bottom: 15px;
-}
-
-div.posiciones {
-    border: 1px solid rgb(231, 231, 231);
-    background: none repeat scroll 0% 0% rgb(250, 250, 250);
-    float: left;
-    overflow: hidden;
-    margin: 0px;
-	font-family: Arial,Helvetica,sans-serif;
-	display: block;
-	outline: 0px none;
-	font-weight: inherit;
-	font-style: inherit;
-	font-size: 100%;
-	vertical-align: baseline;
-}
-
-
-div.posiciones div{
-	font-style: inherit;
-	color:white;
-}
-
-
-
-div.posiciones div.titulo{
-	width: 96%;
-	height: 30px;
-	font-size: 15px;
-	margin-left: 10px;
-	margin-top: 0px;
-	padding-top: 18px;
-	padding-bottom: 18px;
-	line-height: 2;
-	border-bottom: 1px solid rgb(233, 233, 233);
-
-}
-
-
-
-
-div.posiciones div.titulo div.tit {
-    width: 180px;
-    font-size: 17px;
-    float: left;
-    margin-top: 11px;
-    font-family: ArchivoNarrowRegular;
-}
-
-div.posiciones div.titulo div.tit_col {
-    width: 32px;
-    font-size: 12px;
-    font-family: Arial,Helvetica,sans-serif;
-    text-align: center;
-    line-height: 3.5;
-    margin-right: 5px;
-    float: left;
-}
-
-div.posiciones div.titulo div.tit_col span {
-    font-weight: 700;
-    color: rgb(225, 96, 57);
 
 

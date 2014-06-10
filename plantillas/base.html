@@ -14,7 +14,25 @@
 	<meta name="keywords" content="rippled, html, css, theme" />
 	<link rel="shortcut icon" href="favicon.ico" type="image/ico" />
 	<link rel="stylesheet" href="{{STATIC_URL}}css/style.css" type="text/css" media="all" />
-	<script'src='https://cdnjs.cloudflare.com/ajax/libs/knockout/2.3.0/knockout-min.js'></script>
+	<link rel="stylesheet" href="{{STATIC_URL}}css/jquery-ui-1.10.4.custom.css"/>
+	
+	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  	<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+  	<script type='text/javascript' src='{{STATIC_URL}}js/knockout-3.1.0.js'></script>
+	<script type='text/javascript' src='{{STATIC_URL}}js/fixture.js'></script>
+
+  	
+  	<script>
+  	$(function() {
+  		
+    	$( "#tabs" ).tabs();
+
+    	// Here's my data model
+
+  	});
+  	</script>
+
+  	{% block head%}{% endblock %}
 </head>
 <body>
 	<div id="header">

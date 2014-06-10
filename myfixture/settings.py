@@ -10,6 +10,9 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
+
+
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
@@ -24,12 +27,26 @@ DEBUG = True
 
 TEMPLATE_DEBUG = True
 
+TEMPLATE_CONTEXT_PROCESSORS = TCP + (
+    'django.core.context_processors.request',
+)
+
+SUIT_CONFIG = {
+    'ADMIN_NAME': 'My Fixture',
+    'MENU_OPEN_FIRST_CHILD': True,
+    'MENU_ICONS': {
+        'sites': 'icon-leaf',
+        'auth': 'icon-lock',
+    },
+}
+
 ALLOWED_HOSTS = []
 
 
 # Application definition
 
 INSTALLED_APPS = (
+    'suit',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -37,6 +54,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'fixture',
+    'knockout_modeler',
+    
 )
 
 MIDDLEWARE_CLASSES = (
@@ -79,7 +98,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'es-ar'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Argentina/ComodRivadavia'
 
 USE_I18N = True
 
@@ -99,11 +118,3 @@ STATICFILES_DIRS = (
 )
 
 STATIC_URL = '/static/'
-
-
-#Configuracion GMAIL
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'sageoffroy@gmail.com'
-EMAIL_HOST_PASSWORD = 'quitar123'
-EMAIL_PORT = 587

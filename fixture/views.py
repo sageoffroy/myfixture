@@ -6,7 +6,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 
 #modelos propios
 from fixture.models import Seleccion, Grupo, Partido
-from fixture.forms import ContactoForm, UserRegisterForm
+from fixture.forms import ContactoForm, UserRegisterForm, ResultadoForm
 
 #Gestion de usuarios
 
@@ -22,7 +22,15 @@ def selecciones(request):
 def fixture(request):
 	grupos = Grupo.objects.all()
 	partidos = Partido.objects.all()
-	return render_to_response('fixture.html',{'grupos':grupos, 'partidos':partidos},context_instance=RequestContext(request))
+
+	if request.method == 'POST':
+		form = ResultadoForm(request.POST)
+		if form.is_valid:
+			form.save()
+			return HttpResponseRedirect('/fixture')
+	else:
+		form = ResultadoForm()
+	return render_to_response('fixture.html',{'form':form, 'grupos':grupos},context_instance=RequestContext(request))
 
 
 def home(request):

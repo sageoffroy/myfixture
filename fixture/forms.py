@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 from django import forms
-from fixture.models import Seleccion, Partido, Grupo
+from fixture.models import Seleccion, Partido, Grupo, Resultado
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
@@ -24,19 +24,10 @@ class UserRegisterForm(UserCreationForm):
 		fields = ("username","first_name", "last_name", "email",)
 
 
+class ResultadoForm (ModelForm):
+	e1_goles = forms.IntegerField(widget=forms.TextInput(attrs={'size':2, 'id':'goles1', 'class': 'goles loc', 'onchange':'anotarResultado(this)', 'onselect':'cambioInput(this)', 'onclick':'cambioInput(this)'}))
+	e2_goles = forms.IntegerField(widget=forms.TextInput(attrs={'size':2, 'id':'goles2', 'class': 'goles vis', 'onselect':'cambioInput(this)', 'onclick':'cambioInput(this)'}))
 
-	'''def save(self, commit=True):
-		user = super(UserCreationForm, self).save(commit=False)
-		user.set_email = (self.cleaned_data["mail"])
-		user.set_password(self.cleaned_data["password1"])
-		if commit:
-			user.save()
-		return user'''
+	class Meta:
+		model  = Resultado
 
-	'''def save(self, commit=True):
-        #Cometando
-        user = super(UserCreationForm, self).save(commit=False)
-        user.set_password(self.cleaned_data["password1"])
-        if commit:
-        	user.save()
-        return user'''
